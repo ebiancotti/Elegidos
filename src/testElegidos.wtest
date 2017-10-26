@@ -8,29 +8,62 @@ describe "tests"{
 	var juradoBaboso
 	var cantanteTango
 	var juradoTradicional
+	var juradoTecnico
+	var cancionDeTango
+	var cancionDeFolclore
+	var cancionDeCumbia
+	var cancionDePop
+	var invitadoInfluenciadoBaboso
+	var invitadoNoInfluenciado
+	
 	
 fixture{
 	
-	lola = new Cantante(25, "rap")
-	juradoBaboso = new Jurado(baboso)
-	cantanteTango = new Cantante(25, tango)
-	juradoTradicional = new Jurado(tradicional)
+	cancionDeTango = new Cancion("pepe", tango)
+	cancionDeFolclore = new Cancion("pepe", folclore)
+	cancionDeCumbia = new Cancion("pepe", cumbia)
+	cancionDePop = new Cancion("pepe", pop)
 	
 	
+	lola = new Cantante(25, cancionDePop, ["nada"], false, true)
+	juradoBaboso = new Baboso()
+	cantanteTango = new Cantante(51, cancionDeTango, ["sombrero"], true, true)
+	juradoTradicional = new Tradicional()
+	juradoTecnico = new Tecnico()
+	invitadoInfluenciadoBaboso = new Invitado (juradoBaboso)
+	invitadoNoInfluenciado = new Invitado (null)
 	
 	}
 
 	
 
 test "jurado baboso da voto positivo si la cantante es joven" {
-
-	assert.equals(10, juradoBaboso.votar(lola))
+	juradoBaboso.votar(lola)
+	assert.equals(10, lola.obtenerPuntuacion())
 
 }
 
 test "un jurado tradicionalista de voto positivo si el genero es propio del pais" {
+		juradoTradicional.votar(cantanteTango)
+		assert.equals(10, cantanteTango.obtenerPuntuacion())
 		
-		assert.equals(10, juradoTradicional.votar(cantanteTango))
+		}
+	
+test "un jurado tecnico da voto positivo si la performance coincide con el genero"{
+		juradoTecnico.votar(cantanteTango)
+		assert.equals(10,cantanteTango.obtenerPuntuacion() )
 	
 }
+
+test "un Invitado influenciado por JuradoBaboso puntea a cantanteTango"{
+	invitadoInfluenciadoBaboso.votar(cantanteTango)
+		assert.equals(-1, cantanteTango.obtenerPuntuacion())
+}
+
+test "un invitado no influenciado puntea a lola"{
+		invitadoNoInfluenciado.votar(lola)
+		assert.equals(2,lola.obtenerPuntuacion() )
+}
+	
+
 }

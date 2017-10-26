@@ -15,5 +15,5 @@ class Jurado {
 }
 object baboso {
 	method votoSegunTipoDeJurado(cantante) {
-		return if (cantante.EsJovenYLinda()) 10 else - 5 }
+		return if (cantante.EsJoven()) 10 else - 5 }
 }

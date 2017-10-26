@@ -1,10 +1,18 @@
 import Jurados.*
 
 class Cantante {
-
-	method EsJovenYLinda(){
-		return true
+	
+	var edad
+	
+	constructor(_edad){
+		edad=_edad	
+	
 	}
+
+	method EsJoven(){
+		return edad < 30
+	}
+	
 
 
 }

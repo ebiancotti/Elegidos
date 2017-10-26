@@ -1,4 +1,5 @@
 import Cantantes.*
+import Generos.*
 
 class Jurado {
 	var tipo
@@ -21,13 +22,5 @@ object baboso {
 object tradicional{
 	
 	method votoSegunTipoDeJurado(cantante) {
-		return if (listasDeGeneros.esGeneroTradicional(cantante.generoCantado())) 10 else - 5 }
-}
-
-
-object listasDeGeneros{
-	
-	var tradicionales = ["tango", "folclore"]
-	
-	method esGeneroTradicional(genero) = tradicionales.contains(genero)
+		return if (cantante.generoCantado().esGeneroTradicional()) 10 else - 5 }
 }

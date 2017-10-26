@@ -1,4 +1,5 @@
 import Jurados.*
+import Generos.*
 
 class Cantante {
 	

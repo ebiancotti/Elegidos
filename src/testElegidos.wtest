@@ -1,5 +1,6 @@
 import Cantantes.*
 import Jurados.*
+import Generos.*
 
 describe "tests"{
 	
@@ -12,7 +13,7 @@ fixture{
 	
 	lola = new Cantante(25, "rap")
 	juradoBaboso = new Jurado(baboso)
-	cantanteTango = new Cantante(25, "tango")
+	cantanteTango = new Cantante(25, tango)
 	juradoTradicional = new Jurado(tradicional)
 	
 	

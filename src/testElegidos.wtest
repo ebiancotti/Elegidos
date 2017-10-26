@@ -1,21 +1,35 @@
 import Cantantes.*
 import Jurados.*
 
+describe "tests"{
+	
+	var lola
+	var juradoBaboso
+	var cantanteTango
+	var juradoTradicional
+	
+fixture{
+	
+	lola = new Cantante(25, "rap")
+	juradoBaboso = new Jurado(baboso)
+	cantanteTango = new Cantante(25, "tango")
+	juradoTradicional = new Jurado(tradicional)
+	
+	
+	
+	}
+
+	
 
 test "jurado baboso da voto positivo si la cantante es joven" {
 
-	var lola = new Cantante(25, "rap")
-	var jurado1 = new Jurado(baboso)
-
-	assert.equals(10, jurado1.votar(lola))
+	assert.equals(10, juradoBaboso.votar(lola))
 
 }
 
 test "un jurado tradicionalista de voto positivo si el genero es propio del pais" {
-	
-		var cantanteTango = new Cantante(25, "tango")
-		var juradoTradicional = new Jurado(tradicional)
 		
 		assert.equals(10, juradoTradicional.votar(cantanteTango))
 	
+}
 }

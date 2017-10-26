@@ -1,6 +1,10 @@
+import Jurados.*
 
-class Cantantes {
+class Cantante {
 
+	method EsJovenYLinda(){
+		return true
+	}
 
 
 }
